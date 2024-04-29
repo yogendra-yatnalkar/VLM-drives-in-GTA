@@ -28,8 +28,10 @@ def get_selected_area(x0, y0, x1, y1):
     return screen
 
 def key_press_process(keys_to_press):
+    key_press_list = keys_to_press.split(",")
     while(True):
-        for key in keys_to_press.split(","):
+        for key in key_press_list: 
+            print(key)
             pydirectinput.press(key)
         time.sleep(0.04)
 
@@ -42,7 +44,7 @@ if __name__ == "__main__":
 
     top_left_x, top_left_y, bottom_right_x, bottom_right_y = get_coordinates()
     cnt = 5
-    for i in range(5):
+    for i in range(4):
         print("Starting in: ", cnt)
         cnt -= 1
         time.sleep(1)

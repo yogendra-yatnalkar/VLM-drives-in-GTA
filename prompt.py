@@ -1,4 +1,4 @@
-driving_prompt_base = """
+driving_prompt_base_1 = """
 Instruction: 
 - You will be provided with the latest snap-shot/frame from the video-game. Looking at the picture, Your task is to tell me, whcih command to press, so that we can drive further without any accident and following lanes.
 - The only 6 commannds you can tell me are:
@@ -23,5 +23,19 @@ Important Note:
 Previous few Commands: {prev_presses}   
 
 - Only select from the above 6 keys. The outputformat should be in JSON as follows: 
+    - {{"output": <<command-you-choose-to-drive-further>>}}
+"""
+
+driving_prompt_base = """
+You are a very good gamer and currently playing a car driving game. You are currently driving a car in GTA San-Andreas. 
+
+In this game, to drive a car, the only 6 directions available are: foward (press "w"), backward (press "s"), forward-left (press "w,a"), forward,right (press "w,d"), backward,left (press "d,a") and backward,right (press "s,d"). 
+
+You will be provided with the screenshot of the current road ahead and last few key-presses you had pressed. Please continue your commands to drive further safely.
+
+Last Few key-presses: {prev_presses}
+
+Output Instructions:
+Only select from the above 6 keys. The outputformat should be in JSON as follows: 
     - {{"output": <<command-you-choose-to-drive-further>>}}
 """
